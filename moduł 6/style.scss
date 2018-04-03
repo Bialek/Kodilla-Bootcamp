@@ -1,0 +1,552 @@
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+  
+}
+@mixin transform($transforms) {
+  -moz-transform: $transforms;
+  -o-transform: $transforms;
+  -ms-transform: $transforms;
+  -webkit-transform: $transforms;
+  transform: $transforms;
+  
+}
+@mixin translate ($x, $y) {
+  @include transform(translate($x, $y));
+  
+}
+@mixin transition($duration, $ease) {
+	-webkit-transition: $duration $ease;
+	-moz-transition: $duration $ease;
+	-o-transition: $duration $ease;
+	transition: $duration $ease;
+	
+}
+/* globals selectors start */
+
+* {
+	box-sizing: border-box;
+
+}
+%clearfix {
+    *zoom: 1;
+    &:before, &:after {
+        content: " ";
+        display: table;
+        
+    }
+    &:after {
+        clear: both;
+        
+    }
+}
+.container {
+	width: 100%;
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0;
+	@extend %clearfix;
+}
+[class*="col-"] {
+	width: 100%;
+    padding: 12px;
+    float: left;
+
+}
+
+body {
+	font-family: 'Open Sans', sans-serif;
+	margin: 0;
+
+}
+main {
+	background-color: #fff;
+	margin-bottom: 3vh;
+
+}
+$color-skyblue: #3498db;
+$color-gray: #313332;	
+	
+/* globals selectors end */
+
+/* header start */
+
+header {
+	background-color: $color-gray;
+	nav {
+		height: 10vh;
+		width: 90%;
+		img {
+			max-height: 10vh;
+
+		}
+		ul {
+			margin: 0;
+			padding: 0;
+			list-style-type: none;
+			float: right;
+			li {
+				display: inline-block;
+
+			}
+			a {
+				margin-top: 3vh;
+				line-height: 7vh;
+				display: block;
+				padding: 0 2vw;
+				color: #fff;
+				text-decoration: none;
+				text-transform: uppercase;
+				text-align: center;
+
+				&:hover {
+					background-color: #646866;
+					color: $color-gray;
+					cursor: pointer;
+
+				}
+			}
+		}
+	}
+}
+
+/* header end */
+
+/* jumbotron start */
+
+.jumbotron {
+	position: relative;
+	height: 60vh;
+	img {
+		width: 100%;
+		height: 100%;
+		background-position: center;
+		background-size: cover;
+		position: absolute;
+		top: 0;
+		
+	}
+	.slogan {
+		max-width: 800px;
+		background-color: rgba(50, 52, 51, 0.65);
+		position: absolute;
+		right: 0;
+		bottom: 15vh;
+		h1 {
+			color: #fff;
+			margin-right: 25%;
+			padding-left: 10%;
+			font-weight: 100;
+			text-transform: uppercase;
+			&:after {
+				content: "  fermentum vestibulum. Nulla.";
+				font-weight: 900;	
+			}
+			
+		}	
+		
+	} 
+	
+}
+
+/* jumbotron end */
+
+/* three-elements-section start */
+
+.three-elements-section {
+	margin: 70px auto ;
+	text-align: center;
+	button {
+		padding: 2vw;
+		border-style:none;
+		@include border-radius(8px);
+		color: #fff;
+		box-sizing: border-box;
+		background-color: $color-gray;
+	}
+	[class*="col-"] {
+		&:hover {
+			button {
+				background-color: $color-skyblue;
+				
+			}
+			h2 {
+			color: $color-skyblue;
+			
+			}
+			
+		}
+		
+	}
+
+}
+
+
+/* three-elements-section end */
+
+/* section with header and paragraph start */
+
+.section-h1-p {
+	text-align: center;
+	max-width: 60vw;
+	margin: 0 auto;
+	h1 {
+		text-transform: uppercase;
+		font-weight: 900;
+
+	}
+	
+}
+
+/* section with header and paragraph end */
+
+/* gallery-section start */
+
+.gallery {
+	@extend %clearfix;
+	margin-top: 5vh;
+	[class*="fa fa-camera-retro fa-lg"] {
+		left: 30%;
+		
+	}
+	[class*="fa fa-search fa-lg"] {
+		left: 70%;
+		
+	}
+	img {
+		width: 100%;
+		height: 100%;
+		background-position: center;
+		background-size: 100% 100%;
+		box-sizing: border-box;
+	
+	}
+	.layer {
+		position: absolute;
+		bottom: 100%;
+		left: 0;
+		right: 0;
+		background-color: rgba(0,0,0, 0.5);
+		overflow: hidden;
+		width: 100%;
+		height:0;
+		@include transition(1s, ease);
+		i {
+			white-space: nowrap;
+			color: white;
+			position: absolute;
+			height: 40px;
+			top: 50%;
+			@include transform(translate(-50%, -50%));
+			
+			
+		}
+		
+	}
+	[class*="col-"] {
+		padding:0;
+		position: relative;
+		&:hover {
+			.layer {
+				height: 100%;
+				bottom: 0;
+				cursor: pointer;
+				
+			}
+			
+		}
+		
+	}
+	
+}
+
+/* gallery-section end */
+
+/* Team-section start */
+
+.team-section {
+	@extend %clearfix;
+	text-align: center;
+	margin-top: 15vh;
+	.team {
+		position: relative;
+		margin: auto;
+		img {
+			width: 100%;
+			height: 100%;
+			border-style: none;
+			@include border-radius(50%);
+			background-position: center;
+			background-size: cover;
+			line-height: 150px;
+			
+		}
+		p {
+			background-color: rgba(0,0,0, 0.5);
+			opacity: 0;
+			width: 100%;
+			height: 100%;
+			border-style: none;
+			@include border-radius(50%);
+			font-size: 2.5vw;
+			color: #fff;
+			position: relative;
+			line-height: 150px;
+			@include transition(1s, ease);
+			box-sizing: border-box;
+			position: absolute;
+			top: 0;
+			margin: 0;
+			&:hover {
+				opacity: 1;
+				
+			}
+			 	
+		}
+		
+	}
+
+}
+
+/* Team-section end */
+
+/* promotional section start */
+.promotional {
+	@extend %clearfix;
+	background-color: $color-skyblue;
+	position: relative;
+	margin-top: 20vh;
+	color: $color-gray;
+	[class*="col-m-5"] img {
+		height: 40vh;
+		position: absolute;
+		bottom: 0;
+		right:  70%;
+		
+	}
+	h1 {
+		margin-top: 5vh;
+		text-transform: uppercase;
+		
+	}
+
+}
+
+/* promotional section end */
+
+/* numbers section start */
+
+.numbers {
+	text-align: center;
+	margin: 10vh auto;
+	h1 {
+		font-family: 'Indie Flower', cursive;
+		margin: 0;
+		&:after {
+			@extend %clearfix;
+			
+		}
+	
+	}
+	p {
+		margin: 0;
+		color: $color-skyblue;
+		font-weight: 900;
+	
+	}
+	
+}
+
+/* numbers section end */
+
+/* footer section start */
+
+footer {
+	background-color: #646866;
+	color: #fff;
+	text-align: justify;
+	h1 {
+		margin-top: 8vh;
+		text-transform: uppercase;
+		&:after {
+			content: "";
+			height: 2px;
+			width: 100px;
+			display: inline-block;
+			background-color: #fff;
+			vertical-align: middle;
+			margin-left: 10px;
+			
+		}
+		
+	}
+	a {
+		text-decoration-style: none;
+		color: inherit;
+		text-align: center;
+		margin-left: 10px;
+		line-height: 30px;
+		&:first-child {
+			margin-left: 0;
+			
+		}
+		
+	}
+	i.fab, i.fas {
+		background-color: $color-skyblue;
+		margin-bottom: 2vh;
+		
+	}
+	table {
+		width: 100%;
+		td:nth-child(2n) {
+			float: right;
+			text-align: right;
+			
+		}
+		
+	}
+	.copyright{
+		background-color: $color-gray;
+		text-align: center;
+		color: #fff;
+		padding: 10px 0;
+		p {
+			margin: 0;
+			
+		}
+		
+	}	
+	
+}
+
+/* footer section end */
+
+/* @media section start */
+$break-point: 767px;
+
+@media (max-width: $break-point) {
+	/* small devices */
+	$max-width: 100%;
+	.col-s-1 {width: $max-width / 12;}
+	.col-s-2 {width: $max-width / 6;}
+	.col-s-3 {width: $max-width / 4;}
+	.col-s-4 {width: $max-width / 3;}
+	.col-s-5 {width: $max-width / 2.4;}
+	.col-s-6 {width: $max-width / 2;}
+	.col-s-7 {width: $max-width / 1.714285714285714;}
+	.col-s-8 {width: $max-width / 1.5;}
+	.col-s-9 {width: $max-width / 1.333333333333333;}
+	.col-s-10 {width: $max-width / 1.2;}
+	.col-s-11 {width: $max-width / 1.090909090909091;}
+	.col-s-12 {width: $max-width;}
+	h1 {
+		font-size: 5vw;
+
+	}
+	p, table {
+		font-size: 2.5vw;
+
+	}
+	.gallery {
+		[class*="col-"] {
+			height: 40vh;
+		}
+	}
+	.btn-social {
+		text-align: center;
+	}
+	.numbers {
+		h1 {
+			font-size: 10vw;
+		}
+	}
+	.three-elements-section {
+		button {
+			font-size: 8vw;
+		}
+	}
+	.layer {
+		i {
+			font-size: 7vw;
+		}
+ 	}
+ 	footer {
+ 		i.fab, i.fas {
+			width: 10vw;
+			height: 10vw;
+			line-height: 10vw;
+			font-size: 5vw;
+			
+ 		}
+
+	}
+	.team {
+		height: 30vw;
+		width: 30vw;
+
+	}
+
+}
+
+
+@media (min-width: $break-point) {
+	/* medium devices */
+	$max-width: 100%;
+	.col-m-1 {width: $max-width / 12;}
+	.col-m-2 {width: $max-width / 6;}
+	.col-m-3 {width: $max-width / 4;}
+	.col-m-4 {width: $max-width / 3;}
+	.col-m-5 {width: $max-width / 2.4;}
+	.col-m-6 {width: $max-width / 2;}
+	.col-m-7 {width: $max-width / 1.714285714285714;}
+	.col-m-8 {width: $max-width / 1.5;}
+	.col-m-9 {width: $max-width / 1.333333333333333;}
+	.col-m-10 {width: $max-width / 1.2;}
+	.col-m-11 {width: $max-width / 1.090909090909091;}
+	.col-m-12 {width: $max-width;}
+	h1 {
+		font-size: 2vw;
+
+	}
+	p, table {
+		font-size: 1.3vw;
+
+	}
+	.gallery [class*="col-"] {
+		height: 30vh;
+
+	}
+	.numbers h1 {
+		font-size: 5vw;
+
+	}
+	.three-elements-section button {
+		font-size: 4vw;
+
+	}
+	.layer i {
+  		font-size: 3vw;
+
+	}
+	footer {
+		i.fab, i.fas {
+			width: 2.5vw;
+			height: 2.5vw;
+			line-height: 2.5vw;
+			font-size: 1.5vw;
+		
+		}
+	
+	}
+	.team {
+		height: 20vw;
+		width: 20vw;
+
+	}
+
+}
+
+/* @media section end */

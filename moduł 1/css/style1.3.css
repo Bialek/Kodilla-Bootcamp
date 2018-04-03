@@ -1,0 +1,68 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+@import url(https://fonts.googleapis.com/css?family=Rubik:400,500);
+
+h1 {
+	font-family: "Rubik", sans-serif;
+}
+h2 {
+	font-family: "Montserrat", sans-serif;
+}
+body {
+	margin: 0;
+	background-color: #ccc
+}
+.container {
+	margin: 0 auto;
+	max-width: 700px;
+	background-color: #ccc
+}
+header {
+	padding: 30px;
+	background-image: url(https://static.pexels.com/photos/847402/pexels-photo-847402.jpeg);
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+header h1 {
+	font-weight: bold;
+	text-transform: uppercase;
+	font-size: 48px;
+}
+header h1,header p {
+	color: white;
+	text-align: center;
+ 	
+}
+section {
+	padding: 0 20% 0 20%;
+	display: inline-block;
+
+}
+.about {
+	background-color: #5FA71A;
+}
+.about h2 {
+	color: #ccc;
+	margin: 60px;
+	font-size: 28px;
+}
+.interests {
+	background-color: #BAAA1D;
+}
+.interests h2 {
+	color: #ccc;
+	margin: 40px;
+}
+footer {
+	padding: 30px;
+	background-color: #73147A;
+}
+footer p {
+	color:#ccc;
+	text-align: center;
+}
+footer a {
+	text-decoration: none;
+	color:#3e6bc4;
+	font-weight: bold;
+}

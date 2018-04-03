@@ -1,0 +1,77 @@
+body {
+	background-color: lightgray;
+	text-align: center;
+
+}
+h1 {
+	font-size: 40px;
+
+}
+.social {
+	margin: 0 auto;
+	width: 500px;
+	padding: 50px;
+
+}
+.icon-btn {
+	margin: 10px;
+	width: 75px;
+	height: 75px;
+	border: 0 #fff;
+	border-radius: 100%;
+	cursor: pointer;
+	font-size: 40px;
+	background-color: #fff;
+
+}
+.icon-btn:hover {
+	transform: scale(1.10);
+
+} /* twitter */
+.twitter {
+	color: #4099ff;
+
+}
+.twitter:hover {
+	background-color: #4099ff;
+	color: #fff;
+
+} /* facebook */
+.facebook {
+	color: #3b5998;
+
+}
+.facebook:hover {
+	background-color: #3b5998;
+	color: #fff;
+
+} /* google-plus */
+.google-plus {
+	color: #db5a3c;
+
+}
+.google-plus:hover {
+	background-color: #db5a3c;
+	color: #fff;
+
+} /* instagram */
+.instagram {
+	color: #5c3d2e;
+
+}
+.instagram:hover {
+	background-color: #5c3d2e;
+	color: #fff;
+
+} /* github */
+.github {
+	color: #4183C4;
+
+}
+.github:hover {
+	background-color: #4183C4;
+	color: #fff;
+
+}
+
+

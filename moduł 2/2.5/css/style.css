@@ -1,0 +1,73 @@
+body {
+	background-color: lightblue;
+}
+.star8 {
+	display: inline-block;
+	margin: 2em;
+	transform:rotate(22deg);
+	transition: background linear .3s;
+
+}
+.star8::before {
+	background: #fff;
+	content: "";
+	position: absolute;
+	top: -5px;
+	left: -5px;
+	transform: rotate(45deg);
+
+}
+.star8, .star8::before, i {
+	width: 80px;
+	height: 80px;
+
+}
+.star8-gold, .star8-gold::before {
+	border: 6px solid #ffc107;
+
+}
+.star8-orange, .star8-orange::before {
+	border: 6px solid #fd7e33;
+
+}
+.star8-blue, .star8-blue::before {
+	border: 6px solid #3fb0ac;
+
+}
+.star i {
+	margin 0;
+	position: absolute;
+	background-color: #fff;
+	font-size: 60px;
+
+}
+.star i::before {
+	transform: rotate(-22deg);
+	position: absolute;
+	margin: 10px;
+
+}
+.star8-gold:hover::before, .star8-gold:hover, .star8-gold:hover i {
+	background-color: #ffc107;
+	color: #fff;
+
+}
+.star8-orange:hover::before, .star8-orange:hover, .star8-orange:hover i {
+	background-color: #fd7e33;
+	color: #fff;
+
+}
+.star8-blue:hover::before, .star8-blue:hover, .star8-blue:hover i {
+	background-color: #3fb0ac;
+	color: #fff;
+
+}
+
+.star, .star8 .star8:before ,.star8-orange, .star8-orange::before, .star i, .star8-gold, .star8-gold::before, .star i, .star8-blue, .star8-blue::before, .star i {
+	transition: ease-in-out .3s;
+
+}
+
+
+
+
