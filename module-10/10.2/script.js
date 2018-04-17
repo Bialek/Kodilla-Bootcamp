@@ -9,3 +9,9 @@ $(function(){
 		($(element)).append(button);
 	});
 });
+
+$(function(){
+	$('button').click(function(){
+		alert($(this).attr('data-tmp'));
+	});
+});
