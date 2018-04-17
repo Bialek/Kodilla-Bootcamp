@@ -3,10 +3,9 @@ $(function(){
 });
 
 $(function(){
-	var paragraphs = $("p");
-	paragraphs.each(function(index, elements) {
+	var paragraphs = $('p');
+	paragraphs.each(function(index, element) {
 		var button = '<button class="btn" data-tmp="' + index + '">click me</button>';
 		($(element)).append(button);
-
 	});
 });
