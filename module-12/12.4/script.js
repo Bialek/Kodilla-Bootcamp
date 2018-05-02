@@ -2,9 +2,7 @@ var url = 'http://api.icndb.com/jokes/random',
 	paragraph = document.getElementById('joke'),
 	button = document.getElementById('getJoke');
 
-button.addEventListener('click', function(){
-  getJoke();
-});
+button.addEventListener('click', getJoke);
 
 function getJoke() {
   var xhr = new XMLHttpRequest();
