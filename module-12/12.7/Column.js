@@ -1,8 +1,8 @@
-function Column(name) {
+function Column(id, name) {
 	var self = this;
 	
-	this.id = randomString();
-	this.name = name;
+	this.id = id;
+	this.name = name || 'no name';
 	this.element = createColumn();
 
 	function createColumn() {
@@ -36,6 +36,13 @@ Column.prototype = {
 	  this.element.children('ul').append(card.element);
 	},
 	deleteColumn: function() {
-	  this.element.remove();
+	  var self = this;
+	  $.ajax({
+	  	url: url + '/column/' + self.id,
+	  	method: 'DELETE',
+	  	success: function(response) {
+	  		self.element.remove();
+	  	}
+	  });
 	}
 };
