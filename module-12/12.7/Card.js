@@ -14,6 +14,11 @@ function Card(id, name) {
 		cardDeleteBtn.click(function(){
 			self.removeCard();
 		});
+
+		card.click(function() {
+			var cardName = prompt('Enter new description of the card')
+			self.changeCard(cardName);
+		});
 		
 		card.append(cardDeleteBtn);
 		cardDescription.text(self.name);
@@ -27,9 +32,24 @@ Card.prototype = {
 	  $.ajax({
 	  	url: url + '/card/' + self.id,
 	  	method: 'DELETE',
-	  	success: function(){
-	  		self.$element.remove();
+	  	success: function() {
+	  		self.element.remove();
 	  	}
 	  });
+	},
+	changeCard: function(cardName) {
+		var self = this;
+		console.log(self);
+		$.ajax({
+			url: url + '/card/' + self.id,
+			method: 'PUT',
+			data: {
+				name: cardName,
+				
+			},
+			success: function() {
+
+			}
+		})
 	}
 }

@@ -23,9 +23,11 @@ $('.create-column')
 		});
 	});
 	
-function initSortable() {
-    $('.card-list').sortable({
-      connectWith: '.card-list',
-      placeholder: 'card-placeholder'
-    }).disableSelection();
-  }
+	function initSortable() {
+		$('.columnt-card-list').sortable({
+			connectWith: '.columnt-card-list',
+			forcePlaceholderSize: true,
+      		placeholder: 'card-placeholder',
+      		dropOnEmpty: true
+    	}).disableSelection();
+  	};
