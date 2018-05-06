@@ -18,6 +18,7 @@ function Card(id, name) {
 		card.click(function() {
 			var cardName = prompt('Enter new description of the card')
 			self.changeCard(cardName);
+			card.text(cardName);
 		});
 		
 		card.append(cardDeleteBtn);
