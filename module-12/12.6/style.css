@@ -1,0 +1,45 @@
+.hidden {
+  display: none;
+}
+body {
+	padding: 0;
+	margin: 0 auto;
+	width: 1200px;
+	background-color: #790023;
+}
+* {
+	text-align: center;
+	box-sizing: border-box;
+	color: #fff;
+}
+li {
+	display: inline-block;
+	width: 50%;
+	float: left;
+}
+ul {
+	margin-bottom: 50px;
+}
+img {
+	width: 40%;
+	margin-left: 20px;
+	margin-bottom: 20px;
+}
+button {
+	background-color: #0E0E5E;
+	border: none;
+	padding: 10px;
+}
+input {
+	background-color: #fff;
+	color: #000;
+	padding: 5px;
+	border: 5px solid #866500;
+
+}
+
+button, input {
+	
+	border-radius: 4px;
+	
+}

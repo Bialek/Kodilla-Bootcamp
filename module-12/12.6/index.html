@@ -1,17 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <title>12.6</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 	<h1>Country search engine</h1>
 	<button id="search">Search a country</button>
-	<input type="text" id="countryName">
-	<h2>List of countries</h2>
-	<ul id="countries">
-		<li>No data</li>
+	<input type="text" placeholder="e.g. Pol" id="countryName">
+	<h2 class="hidden">List of countries</h2>
+	<ul id="countriesList">
 	</ul>
+	<h3 class="hidden">Country more info:</h3>
+	<div id="model" class="hidden">
+		<img src="{source}" alt="flag">
+  		<h2>{Country}</h2>
+  		<p>Capital: {Capital}</p>
+  		<p>Land area: {Area} km&sup2;</p>
+  		<p>Population: {Population}</p>
+  		<p>Language(s): {Language}</p>
+  		<p>Currency: {Currency}</p>
+	</div>
 
 	<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <script type="text/javascript" src="script.js"></script>
