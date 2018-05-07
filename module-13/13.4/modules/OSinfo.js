@@ -1,11 +1,11 @@
-var os = require('os');
+var os = require('os'),
+	upTime = require('./UpTime');
 
 function getOSinfo() {
 	var type = os.type(),
-			release = os.release(),
-			cpu = os.cpus()[0].model,
-			uptime = os.uptime(),
-			userInfo = os.userInfo();
+		release = os.release(),
+		cpu = os.cpus()[0].model,
+		userInfo = os.userInfo();
 
 	if (type === 'Darwin') {
 		type = 'OSX';
@@ -15,7 +15,7 @@ function getOSinfo() {
 	console.log('System:', type);
 	console.log('Release', release);
 	console.log('CPU model:', cpu);
-	console.log('Uptime:~', (uptime/60).toFixed(0), 'min');
+	upTime.print();
 	console.log('User name:', userInfo.username);
 	console.log('Home dir:', userInfo.homedir);
 }
