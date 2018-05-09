@@ -9,11 +9,11 @@ function start () {
         switch (req.url) {
             case '/':
             case '/home':
-            handlers.welcome (req, res);
-            break;
+                handlers.welcome (req, res);
+                break; 
             case '/upload':
-            handlers.upload (req, res);
-            break;
+                handlers.upload (req, res);
+                break; 
             default:
                 handlers.error (req, res);
         }
