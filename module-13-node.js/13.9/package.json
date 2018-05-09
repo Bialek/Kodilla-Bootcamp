@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "colors": "^1.2.4",
+    "formidable": "^1.2.1",
     "nodemon": "^1.17.4"
   }
 }
