@@ -4,7 +4,7 @@ var http = require('http'),
 
 function start () {
     function onRequest(req, res) {
-        console.log('Odebrano zapytanie.');
+        console.log('Request received.');
         res.writeHead(200, {'Content-Type': 'text/plain; charset=utf-8'});
         switch (req.url) {
             case '/':
@@ -23,7 +23,7 @@ function start () {
     }
     http.createServer(onRequest).listen(9000);
 
-    console.log('Uruchomiono serwer.'.green);
+    console.log('Server on.'.green);
 }
 
 exports.start = start;

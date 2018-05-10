@@ -31,10 +31,8 @@ exports.welcome = (req, res) => {
     });
 }
 
-
-
 exports.error = (req, res) => {
-    console.log('Nie wiem co robić.'.red);
+    console.log('404 not found.'.red);
     res.write('404 :(');
     res.end();
 }
