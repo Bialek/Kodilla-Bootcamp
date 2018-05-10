@@ -46,9 +46,6 @@ Card.prototype = {
 			data: {
 				name: cardName,
 				bootcamp_kanban_column_id: self.columnId
-			},
-			success: function() {
-
 			}
 		})
 	}

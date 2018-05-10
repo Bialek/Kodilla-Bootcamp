@@ -28,6 +28,12 @@ $('.create-column')
 			connectWith: '.columnt-card-list',
 			forcePlaceholderSize: true,
       		placeholder: 'card-placeholder',
-      		dropOnEmpty: true
+			dropOnEmpty: true,
+			update: function (event) {
+				var self = this;
+				console.log(self);
+				console.log($(event.target).data('id'));
+				
+			}
     	}).disableSelection();
   	};

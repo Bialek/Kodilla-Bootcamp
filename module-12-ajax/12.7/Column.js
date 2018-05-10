@@ -9,7 +9,7 @@ function Column(id, name) {
 		// TWORZENIE NOWYCH WĘZŁÓW
 		var column = $('<div class="column"></div>');
 		var columnTitle = $('<h2>').addClass('column-title').text(self.name);
-		var columnCardList = $('<ul class="columnt-card-list"></ul>');
+		var columnCardList = $('<ul data-id="' + self.id + '" class="columnt-card-list"></ul>');
 		var columnDelete = $('<button class="btn-delete">x</button>');
 		var columnAddCard = $('<button class="add-card">Add Card</button>');
 		
@@ -57,7 +57,6 @@ Column.prototype = {
 	},
 	deleteColumn: function() {
 		var self = this;
-		console.log(self.id)
 	  $.ajax({
 	  	url: url + '/column/' + self.id,
 	  	method: 'DELETE',
