@@ -31,18 +31,16 @@ $('.create-column')
 			dropOnEmpty: true,
 			update: function (event) {
 				var name = $(event.toElement).text(),
-					columnid = $(event.target).data('id');
-					console.log(event);
-					
-					// $.ajax({
-					// 	url: url + '/card/' + self.id,
-					// 	method: 'PUT',
-					// 	data: {
-					// 		name: cardName,
-					// 		bootcamp_kanban_column_id: self.columnId
-					// 	}
-					// })
-				
+					columnid = $(event.target).data('id'),
+					id = $(event.toElement).data('id');					
+					$.ajax({
+						url: url + '/card/' + id,
+						method: 'PUT',
+						data: {
+							name: name,
+							bootcamp_kanban_column_id: columnid
+						}
+					})
 			}
     	}).disableSelection();
   	};
