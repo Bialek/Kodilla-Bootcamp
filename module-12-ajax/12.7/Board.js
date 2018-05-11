@@ -30,9 +30,18 @@ $('.create-column')
       		placeholder: 'card-placeholder',
 			dropOnEmpty: true,
 			update: function (event) {
-				var self = this;
-				console.log(self);
-				console.log($(event.target).data('id'));
+				var name = $(event.toElement).text(),
+					columnid = $(event.target).data('id');
+					console.log(event);
+					
+					// $.ajax({
+					// 	url: url + '/card/' + self.id,
+					// 	method: 'PUT',
+					// 	data: {
+					// 		name: cardName,
+					// 		bootcamp_kanban_column_id: self.columnId
+					// 	}
+					// })
 				
 			}
     	}).disableSelection();
