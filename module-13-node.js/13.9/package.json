@@ -13,6 +13,7 @@
   "dependencies": {
     "colors": "^1.2.4",
     "formidable": "^1.2.1",
+    "mime-types": "^2.1.18",
     "nodemon": "^1.17.4"
   }
 }

@@ -1,6 +1,7 @@
 var fs = require('fs'),
     colors = require('colors'),
-    formidable = require('formidable');
+    formidable = require('formidable'),
+    mime = require('mime-types');
 
 exports.upload = (req, res) => {
     console.log('Start upload request');
@@ -11,7 +12,7 @@ exports.upload = (req, res) => {
         res.writeHead(200, {"Content-Type": "text/html; charset=utf-8"});
         res.write('received image:<br/>');
         res.write("<img src='/show' />");
-        exports.show = (req, res,) => {
+        exports.show = (req, res) => {
             fs.readFile(fields.title + '.png', "binary", (error, file) => {
                 res.writeHead(200, {"Content-Type": "image/png"});
                 res.write(file, "binary");
@@ -20,6 +21,17 @@ exports.upload = (req, res) => {
         }
         res.end();
     });
+}
+
+exports.file = (req, res) => {
+    console.log("File welcome request", 'template'+req.url);
+    if (fs.existsSync('template'+req.url)) {
+        fs.readFile('template'+req.url, (err, html) => {
+            res.writeHead(200, {"Content-Type": mime.lookup(req.url)});
+            res.write(html);
+            res.end();
+        });
+    }
 }
 
 exports.welcome = (req, res) => {

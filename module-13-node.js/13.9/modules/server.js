@@ -18,7 +18,11 @@ function start () {
                 handlers.show(req, res);
                 break; 
             default:
-                handlers.error (req, res);
+                if (req.url.length > 1) {
+                    handlers.file(req, res);
+                } else {
+                    handlers.error (req, res);
+                }
         }
     }
     http.createServer(onRequest).listen(9000);
