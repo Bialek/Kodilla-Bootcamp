@@ -1,4 +1,3 @@
-
 var movies = [
 	{
 		id: 1,
@@ -32,19 +31,50 @@ var movies = [
 	}
 ];
 
-var moviesElements = movies.map(function(movie) {
-	return React.createElement('li', {key: movie.id},
-		React.createElement('h2', {}, movie.title),
-		React.createElement('p', {}, movie.desc),
-		React.createElement('img', { src: movie.img, className: 'avatar' })
-	);
+var Movie = React.createClass({
+	propTypes: {
+		item: React.PropTypes.object.isRequired,
+		},
+
+		render: function() {
+			return (
+				React.createElement('li', {},		
+					React.createElement('h2', {}, this.props.item.title),
+					React.createElement('p', {}, this.props.item.desc),
+					React.createElement('img', {
+						src: this.props.item.img
+					})		
+			)
+		)
+	},
 });
 
-var element =
-	React.createElement('div', {},
-		React.createElement('h1', {}, 'Film List'),
-		React.createElement('ul', {}, moviesElements)
-	);
+var Movies = React.createClass({
+	propTypes: {
+		items: React.PropTypes.array.isRequired,
+	},
 
+	render: function() {
+		var movies = this.props.items.map(function(movie) {
+			return React.createElement(Movie, {item: movie, key: movie.id});
+	});
 
-ReactDOM.render(element, document.getElementById('app'));
+	return (
+		React.createElement('ul', {}, movies)
+		);
+	}
+});
+
+var App = React.createClass({
+	render: function() {
+		return (
+			React.createElement('div', {},
+				React.createElement('h1', {}, 'My favorite movies list'),
+				React.createElement(Movies, {items: movies}, {})
+			)
+		);
+	}
+});	
+
+var app = React.createElement(App);
+ReactDOM.render(app, document.getElementById('app'));
