@@ -11,7 +11,8 @@ body {
   border-radius: 5px;
   -webkit-box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.75);
-  box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.75); }
+  box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.75);
+  padding: 3%; }
 
 ::placeholder {
   color: #c0c0c0;
@@ -23,10 +24,13 @@ body {
   color: #c0c0c0; }
 
 ::-ms-input-placeholder {
-  /* Microsoft Edge */ }
+  /* Microsoft Edge */
+  color: #c0c0c0; }
 
 .contactForm {
-  width: 80%;
+  padding: 6% 3%;
+  border: 2px solid;
+  border-radius: 5px;
   margin: 0 auto; }
   .contactForm input {
     padding-left: 20px;
@@ -35,9 +39,8 @@ body {
     background-color: inherit;
     border-bottom: 1px solid #c0c0c0; }
   .contactForm input[type=text] {
-    margin-top: 50px;
     width: 47%;
-    margin-bottom: 25px; }
+    margin-bottom: 4%; }
     .contactForm input[type=text]:focus {
       border: none;
       box-shadow: none; }
@@ -54,5 +57,51 @@ body {
     width: 25%; }
     .contactForm button:hover {
       background-color: #6f6e9d; }
+
+.contactsList {
+  list-style: none;
+  padding: 0;
+  margin: 0; }
+  .contactsList .contactItem {
+    border: 2px solid;
+    margin-bottom: 3%;
+    border-radius: 5px;
+    padding: 3% 6%;
+    width: 48%;
+    float: left;
+    position: relative;
+    background-color: #D8A886;
+    -webkit-box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.75); }
+    .contactsList .contactItem:nth-child(odd) {
+      margin-right: 4%; }
+    .contactsList .contactItem:nth-child(-n+2) {
+      margin-top: 80px; }
+      @media (max-width: 550px) {
+        .contactsList .contactItem:nth-child(-n+2) {
+          margin-top: 40px; } }
+    @media (max-width: 550px) {
+      .contactsList .contactItem {
+        width: 100%;
+        margin-top: 40px; } }
+  .contactsList .contactImage {
+    position: absolute;
+    width: 20%;
+    top: auto;
+    bottom: auto;
+    left: 6%;
+    border-radius: 5px;
+    border: 2px solid #000; }
+  .contactsList .contactLabel {
+    width: 100%;
+    padding-left: 20px;
+    text-align: right; }
+  .contactsList .contactEmail {
+    display: block;
+    width: 100%;
+    text-align: right; }
+  .contactsList .contactEmail, .contactsList .contactLabel {
+    color: #000; }
 
 /*# sourceMappingURL=style.css.map */
