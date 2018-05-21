@@ -1,14 +1,11 @@
-'use strict';
+"use strict";
 
-var numbersArray = [];
-var x = parseInt(prompt('put number'));
-while (!isNaN(x)) {
-  numbersArray.push(x);
-  x = parseInt(prompt('put number'));
-}
-x = 0;
-numbersArray.forEach(function (element, index, array) {
-  x += element;
-});
+var logAllArguments = function logAllArguments() {
+  for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+    args[_key] = arguments[_key];
+  }
 
-console.log(x / numbersArray.length);
+  return args.forEach(function (arg) {
+    return console.log(arg);
+  });
+};
