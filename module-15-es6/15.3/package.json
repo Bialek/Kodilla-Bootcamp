@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "babel script.js --watch --out-file script-compiled.js"
+    "start": "babel ./15.6/script.js --watch --out-file ./15.6/script-compiled.js"
   },
   "keywords": [],
   "author": "",
