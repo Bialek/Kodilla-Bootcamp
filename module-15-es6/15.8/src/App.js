@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './styles.css';
 class App extends React.Component {
   constructor() {
     super();
@@ -33,6 +33,7 @@ class App extends React.Component {
             onChange={event => this.onChangeHandle(event)}
             value={this.state.searchText}
           />
+          <button type="submit">search</button>
         </form>
         <UsersList users={this.state.users}/>
       </div>
@@ -57,8 +58,8 @@ class UsersList extends React.Component {
 class User extends React.Component {
   render() {
     return (
-      <div>
-        <img src={this.props.user.avatar_url} alt="avatar" style={{maxWidth: '100px'}}/>
+      <div className="user">
+        <img src={this.props.user.avatar_url} alt="avatar"/>
         <a href={this.props.user.html_url} target="_blank">{this.props.user.login}</a>
       </div>
     );

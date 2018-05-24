@@ -1,0 +1,16 @@
+* {
+	text-align: center;
+}
+form, .user {
+	margin-bottom: 30px;
+}
+.user {
+	display: inline-block;
+	width: 33.33%;
+}
+.user img {
+	width: 100px;
+}
+.user a {
+	display: block;
+}
