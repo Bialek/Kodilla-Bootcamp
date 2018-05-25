@@ -1,144 +1,132 @@
 import React, { Component } from 'react';
-import 'font-awesome/css/font-awesome.min.css';
 import './styles.css';
 
 class App extends React.Component {
-  constructor(display) {
-    super()
-    this.state = {
-      running : false,
-      display : display 
-    }
-    this.reset();
-    this.print(this.times);
-  }
+	constructor() {
+		super();
+		this.state = {
+			running : false,
+			startButton: 'inline-block',
+			stopButton: 'none',
+			times: {
+				minutes: 0,
+				seconds: 0,
+				miliseconds: 0
+			},
+			results: []
+		}
+	}
 
-  reset(e) {
-    this.state.running = false;
-    this.times = {
-      minutes: 0,
-      seconds: 0,
-      miliseconds: 0
-    };
-    this.print();
-  }
-  print() {
-    console.log(this.state.running);
-    return this.display = this.format(this.times);
-  }
-  
+	reset() {
+		this.stop();
+		this.setState({
+			times: {
+				minutes: 0,
+				seconds: 0,
+				miliseconds: 0
+			}
+		})
+	}
 
-  format(times) {
-    return `${pad0(times.minutes)}:${pad0(times.seconds)}:${pad0(Math.floor(times.miliseconds))}`;
-  }
+	format(times) {
+		return `${pad0(times.minutes)}:${pad0(times.seconds)}:${pad0(Math.floor(times.miliseconds))}`;
+	}
 
-  start() {
-    if (!this.state.running) {
-      this.running = true;
-      this.watch = setInterval(() => this.step(), 10);
-    }
-  }
+	start() {
+		if (!this.state.running) {
+		this.setState({
+			running: true,
+			startButton: 'none',
+			stopButton: 'inline-block'
+		})
+		this.watch = setInterval(() => this.step(), 10)
+		}
+	}
 
-  step() {
-    if (!this.running) return;
-    this.calculate();
-    this.print();
-  }
+	step() {
+		if (!this.state.running) return;
+		this.calculate();
+	}
 
-  calculate() {
-    this.times.miliseconds += 1;
-    if (this.times.miliseconds >= 100) {
-      this.times.seconds += 1;
-      this.times.miliseconds = 0;
-    }
-    if (this.times.seconds >= 60) {
-      this.times.minutes += 1;
-      this.times.seconds = 0;
-    }
-  }
+	calculate() {
+		let {minutes, seconds, miliseconds} = this.state.times;
+		miliseconds += 1;
+		if (miliseconds >= 100) {
+			seconds += 1;
+			miliseconds = 0;
+		}
+		if (seconds >= 60) {
+			minutes += 1;
+			seconds = 0;
+		}
+		this.setState({
+			times: {
+				minutes: minutes,
+				seconds: seconds,
+				miliseconds: miliseconds
+			}
+		});
+	}
 
-  stop() {
-    this.running = false;
-    clearInterval(this.watch);
-  }
+	stop() {
+		this.setState({
+		running: false,
+		startButton: 'inline-block',
+		stopButton: 'none'
+		})
+		clearInterval(this.watch);
+	}
 
-  split() {
-    resultsList(this.format(this.times));
-  }
-
-  cleanList() {
-    document.querySelector('.results').innerHTML = "";
-  }
+	split() {
+		this.setState({ results: [...this.state.results, <li>{this.format(this.state.times)}</li>] });
+	}
 
 
-  render() {
-    return (
-      <div className="stopWatch">
+	cleanList() {
+		document.querySelector('.results').innerHTML = "";
+	}
 
-        <nav className="controls">
-          <a href="#" className="button" id="start" onClick={this.start}>
-            <i className="fas fa-play"></i>
-          </a>
-          <a href="#" className="button" id="stop" onClick={this.stop}>
-            <i className="fas fa-pause"></i>
-          </a>
-          <a href="#" className="button" id="reset" onClick={this.reset}>
-            <i className="fas fa-redo"></i>
-          </a>
-          <a href="#" className="button" id="split" onClick={this.split}>
-            <i className="far fa-save"></i>
-          </a>
-          <a href="#" className="button" id="clean" onClick={this.clean}>
-            <i className="far fa-trash-alt"></i>
-          </a>
-        </nav>
 
-        <div className="watch">{this.display}</div>
-
-        <ul className="results"></ul>
-      
-      </div>
-    )
-  }
+	render() {
+		return (
+			<div>
+				<div className="stopWatch">
+					<nav className="controls">
+						<a className="button" id="start" style={{display:this.state.startButton}} onClick={this.start.bind(this)}>
+							<i className="fas fa-play"></i>
+						</a>
+						<a className="button" id="stop" style={{display:this.state.stopButton}} onClick={this.stop.bind(this)}>
+							<i className="fas fa-pause"></i>
+						</a>
+						<a className="button" id="reset" onClick={this.reset.bind(this)}>
+							<i className="fas fa-redo"></i>
+						</a>
+						<a className="button" id="split" onClick={this.split.bind(this)}>
+							<i className="far fa-save"></i>
+						</a>
+						<a className="button" id="clean" onClick={this.cleanList}>
+							<i className="far fa-trash-alt"></i>
+						</a>
+					</nav>
+					<div className="watch">
+						{this.format(this.state.times)}
+					</div>
+				</div>
+				<ul className="results">
+					{this.state.results}
+				</ul>
+			</div>
+		)
+	}
 
 }
 
 function pad0(value) {
-  let result = value.toString();
-    if (result.length < 2) {
-      result = '0' + result;
-    }
-  return result;
+	let result = value.toString();
+	if (result.length < 2) {
+		result = '0' + result;
+	}
+	return result;
 }
-function resultsList(time) {
-  let li = document.createElement("li"),
-    ul = document.querySelector('.results'),
-    id = ul.children.length + 1;
-    li.appendChild(document.createTextNode(`${id}. ${time}`));
-    ul.appendChild(li);
-}
-// const watch = new App(document.querySelector('.watch'));
-
-// let startButton = document.getElementById('start'),
-//   stopButton = document.getElementById('stop'),
-//   resetButton = document.getElementById('reset'),
-//   splitButton = document.getElementById('split'),
-//   cleanButton = document.getElementById('clean');
-
-// startButton.addEventListener('click', () => {
-//   watch.start();
-//   startButton.style.display = "none";
-//   stopButton.style.display = "block"
-// });
-// stopButton.addEventListener('click', () => {
-//   watch.stop();
-//   stopButton.style.display = "none";
-//   startButton.style.display = "block"
-// }); 
-// resetButton.addEventListener('click', () => watch.reset());
-// splitButton.addEventListener('click', () => watch.split());
-// cleanButton.addEventListener('click', () => watch.cleanList());
-
-
 
 export default App;
