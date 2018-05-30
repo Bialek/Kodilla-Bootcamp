@@ -1,14 +1,22 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const OptimizeJsPlugin = require('optimize-js-plugin');
-const plugins = [new HtmlWebpackPlugin({
-    template: 'src/index.html',
-    filename: 'index.html',
-    inject: 'body',
-    files: {
-        "css": ["style.css"]
-    }
-})];
+const CopyWebpackPlugin = require('Copy-Webpack-Plugin');
+const HtmlWebpackIncludeAssetsPlugin = require('html-webpack-include-assets-plugin');
+const plugins = [
+    new CopyWebpackPlugin([
+        { from: 'src/images', to: 'images/'}
+      ]),
+    new HtmlWebpackPlugin({
+        template: 'src/index.html',
+        filename: 'index.html',
+        inject: 'body',
+    }),
+    new HtmlWebpackIncludeAssetsPlugin({
+        assets: ['src/style.css'],
+        append: true
+    })
+];
 
 module.exports = (env) => {
     if (env === 'production') {
@@ -35,18 +43,6 @@ module.exports = (env) => {
                     test: /\.js$/,
                     loader: "babel-loader",
                     exclude: ["node_modules"]
-                },
-                {
-                	test: /\.(gif|png|jpe?g|svg)$/i,
-					use: [
-						'file-loader',
-						{
-							loader: 'image-webpack-loader',
-							options: {
-								bypassOnDebug: true,
-							},
-						},
-					]
                 },
                 {
                 	test: /\.css$/,

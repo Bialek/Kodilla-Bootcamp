@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --env development",
-    "start": "webpack --env production"
+    "start": "webpack-dev-server --hot --env production",
+    "build": "webpack-dev-server --hot --env development"
   },
   "keywords": [],
   "author": "",
@@ -16,14 +16,16 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "css-loader": "^0.28.11",
+    "html-webpack-include-assets-plugin": "^1.0.4",
     "html-webpack-plugin": "^3.2.0",
-    "image-webpack-loader": "^4.2.0",
     "optimize-js-plugin": "0.0.4",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
+    "react-hot-loader": "^4.2.0",
     "style-loader": "^0.21.0",
     "webpack": "^4.9.1",
-    "webpack-cli": "^2.1.4"
+    "webpack-cli": "^2.1.4",
+    "webpack-dev-server": "^3.1.4"
   },
   "dependencies": {
     "uuid": "^3.2.1"
