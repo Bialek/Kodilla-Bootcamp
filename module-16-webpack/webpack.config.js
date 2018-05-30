@@ -4,7 +4,10 @@ const OptimizeJsPlugin = require('optimize-js-plugin');
 const plugins = [new HtmlWebpackPlugin({
     template: 'src/index.html',
     filename: 'index.html',
-    inject: 'body'
+    inject: 'body',
+    files: {
+        "css": ["style.css"]
+    }
 })];
 
 module.exports = (env) => {
@@ -25,12 +28,25 @@ module.exports = (env) => {
 
         plugins,
 
+
         module: {
             rules: [
                 {
                     test: /\.js$/,
                     loader: "babel-loader",
                     exclude: ["node_modules"]
+                },
+                {
+                	test: /\.(gif|png|jpe?g|svg)$/i,
+					use: [
+						'file-loader',
+						{
+							loader: 'image-webpack-loader',
+							options: {
+								bypassOnDebug: true,
+							},
+						},
+					]
                 },
                 {
                 	test: /\.css$/,

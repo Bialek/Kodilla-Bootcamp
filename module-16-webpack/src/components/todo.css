@@ -1,0 +1,21 @@
+ul li {
+	border: 2px solid #8AB430;
+    background-color: #279043;
+    color: #fff;
+    position: relative;
+    padding: 10px 40px;
+    padding-left: 10px;
+    word-wrap: break-word;
+    max-width: 500px;
+}
+ul button {
+	width: 30px;
+    position: absolute;
+    right: 0;
+    height: 100%;
+    top: 0;
+    background-color: #255C7A;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+}
