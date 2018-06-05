@@ -1,0 +1,14 @@
+html
+    head
+        title welcome
+        style
+            include ../css/style.css
+    body
+        if(user.login === user.login || user.password === user.password)
+            h1 Hi, #{user.login}
+            p you have logged in correctly
+            iframe(src="https://giphy.com/embed/xT0xezQGU5xCDJuCPe" width="480" height="217" frameBorder="0" class="giphy-embed")
+        
+        else
+            a(href="/")
+            
