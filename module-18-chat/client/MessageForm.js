@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-import styles from './css/UserForm.css';
+import styles from './css/MessageForm.css';
 
 class MessageForm extends Component {
     constructor(props) {
@@ -14,10 +14,12 @@ class MessageForm extends Component {
         e.preventDefault();
         const message = {
             from: this.props.name,
-            text: this.state.text
+            text: this.state.text,
+            color: this.props.color
         };
         this.props.onMessageSubmit(message);
         this.setState({text: '' });
+        console.log('mf ' + this.props.color);
     }
 
     changeHandler(e) {
@@ -32,6 +34,10 @@ class MessageForm extends Component {
                     onChange={e => this.changeHandler(e)}
                     value={this.state.text}
                     placeholder='Message'
+                />
+                <input
+                    className={styles.MessageBtn}
+                    type='submit'
                 />
             </form>
         );

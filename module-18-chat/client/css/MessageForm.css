@@ -2,10 +2,22 @@
     display: flex;
     flex-direction: row;
 }
-
 .MessageInput {
     flex: 1;
     padding: 20px;
     border: 0;
     border-top: 1px solid #ccc;
+    width: 80%;
+}
+.MessageBtn {
+    width: 20%;
+    border: none;
+    padding: 0;
+    margin: 0;
+    border-top: 1px solid #ccc;
+    color: white;
+    background-color: #ccc;
+}
+.MessageBtn:hover {
+    background-color: #e5e5e5;
 }

@@ -17,10 +17,21 @@
     margin: 0;
     padding: 0;
 }
-
 .UserItem {
     list-style: none;
     border-bottom: 1px solid #ccc;
     padding: 20px;
     margin: 0 0 0 20px;
+    position: relative;
+}
+.UserItem::before {
+    content: '';
+    background-color: lawngreen;
+    width: 10px;
+    height: 10px;
+    border: none;
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+    top: 43%;
 }

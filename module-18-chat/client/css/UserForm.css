@@ -4,12 +4,17 @@
     justify-content: center;
     width: 100vw;
     height: 100vh;
+    background-color: white;
 }
-
 .UserInput {
     padding: 20px;
     font-size: 2em;
     border: 0;
     border-bottom: 1px solid #ccc;
-    width: 510px;
+    width: 100%;
+    color: #ccc;
+}
+.UserInput:active, .UserInput:hover, .UserInput:target, .UserInput:visited {
+    border-bottom-color: black;
+    color: black;
 }

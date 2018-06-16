@@ -1,5 +1,11 @@
+* {
+    box-sizing: border-box;
+    outline: 0;
+    transition: 0.6s;
+}
 body {
     margin: 0;
+    background-color: skyblue;
 }
 
 .App {

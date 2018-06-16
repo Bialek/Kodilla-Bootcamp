@@ -3,8 +3,8 @@ import React from 'react';
 import styles from './css/MessageList.css';
 
 const Message = props => (
-    <div className={styles.Message}>
-        <strong>{props.from} :</strong>
+    <div className={styles.Message}  style={{backgroundColor: props.color}}>
+        <strong>{props.from}: </strong>
         <span>{props.text}</span>
     </div>
 );
@@ -17,10 +17,12 @@ const MessageList = props => (
                     <Message 
                         key={i}
                         from={message.from}
-                        text={message.text}
+                        text={message.text}    
                     />
                 );
             })
         }
     </div>
 );
+
+export default MessageList;
