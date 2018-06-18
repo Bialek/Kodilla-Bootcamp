@@ -1,108 +1,100 @@
 import React, { Component } from 'react';
 import io from 'socket.io-client';
-import styles from './css/App.css'
-
-import UsersList from './UsersList';
-import MessageList from './MessageList';
-import UserForm from './UserForm';
-import MessageForm from './MessageForm';
+import styles from './css/App.css';
+import MessageForm from './MessageForm.js';
+import MessageList from './MessageList.js';
+import UsersList from './UsersList.js';
+import UserForm from './UserForm.js';
 
 const socket = io('/');
 
 class App extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            users: [],
-            messages: [],
-            text: '',
-            name: '',
-            color: ''
-        };
-    }
+	constructor(props) {
+		super(props);
+		this.state = {
+			users: [],
+			messages: [],
+			text: '',
+			name: '',
+			color: ''
+		};
+	}
 
-    componentDidMount() {
-        socket.on('message', message => this.messageReceive(message));
-        socket.on('update', ({users}) => this.chatUpdate(users));
-    }
+	componentDidMount() {
+		socket.on('message', message => this.messageReceive(message));
+		socket.on('update', ({users}) => this.chatUpdate(users));
+	}
 
-    messageReceive(message) {
-        const messages = [message, ...this.state.messages];
-        this.setState({messages});
-    }
+	messageReceive(message) {
+		const messages = [message, ...this.state.messages];
+		this.setState({messages});
+	}
 
-    chatUpdate(users) {
-        this.setState({users});
-    }
-s
-    handleMessageSubmit(message) {
-        const messages = [message, ...this.state.messages];
-        this.setState({messages});
-        socket.emit('message', message);
-    }
+	chatUpdate(users) {
+		this.setState({users});
+	}
 
-    handleUserSubmit(name) {
-        this.setState({name});
-        socket.emit('join', name);
-    }
-    
-    handleUserColor(color) {
+	handleMessageSubmit(message) {
+		const messages = [message, ...this.state.messages];
+		this.setState({messages});
+		socket.emit('message', message);
+	}
+
+	handleUserSubmit(name) {
+		this.setState({name});
+		socket.emit('join', name);
+	}
+
+	handleUserColor(color) {
         this.setState({color});
-        console.log(this.state.color);
     }
 
-    // componentWillUnmount() {
-    //     socket.on('message', message => this.messageReceive(message));
-    //     socket.on('update', ({users}) => this.chatUpdate(users));
-    // }
+	render() { 
+		return this.state.name !== '' ? this.renderLayout () : this.renderUserForm()
+	}
+	renderLayout() { 
+		return (
+			<div className = {styles.App}>
+				<div className = {styles.Header}>
+					<div className = {styles.AppTitle}>
+						ChatLogo
+					</div>
+					<div className = {styles.AppRoom}>
+						Chat room 
+					</div>
+				</div>
+				<div className = {styles.AppBody}>
+					<UsersList
+						users = {this.state.users}
+					/>
+					<div className = {styles.MessageWrapper}>
+						<MessageList
+							messages = {this.state.messages}
+						/>
+						<MessageForm
+							onMessageSubmit = {message =>
+								this.handleMessageSubmit(message)}
+								name = {this.state.name}
+								color = {this.state.color}
+						/>
+					</div>
+				</div>
+			</div>
+		);
+	}
 
-    render() {
-        return this.state.name !== '' ? ( this.renderLayout() ): this.renderUserForm()
-    }
-
-    renderLayout() {
-        return (
-            <div className={styles.App}>
-                <div className={styles.AppHeader}>
-                    <div className={styles.AppTitle}>
-                        ChatApp
-                    </div>
-                    <div className={styles.AppRoom}>
-                        Chat room
-                    </div>
-                </div>
-                    <div className={styles.AppBody}>
-                        <UsersList
-                            users={this.state.users}
-                        />
-                    <div className={styles.MessageWrapper}>
-                        <MessageList
-                            messages={this.state.messages}
-                        />
-                        <MessageForm
-                            onMessageSubmit={message => this.handleMessageSubmit(message)}
-                            name={this.state.name}
-                        />
-                    </div>
-                </div>
-            </div>
-        );
-    }
-
-    renderUserForm() {
-        return (
-            <UserForm 
-                onUserSubmit= {
-                    (name, color) => {
-                        this.handleUserSubmit(name);
-                        this.handleUserColor(color);
-                    } 
-                }
-               
-            />
-        )
-     }
-
+	renderUserForm() {
+		return (
+			<UserForm 
+				onUserSubmit= {
+					(name, color) => {
+						this.handleUserSubmit(name);
+						this.handleUserColor(color);
+					}
+				} 
+			/>
+		);
+	}
 };
 
 export default App;

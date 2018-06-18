@@ -16,14 +16,14 @@ body {
 }
 
 .AppHeader {
-    display: flex;
+    display: inline-flex;
     flex-direction: row;
     align-items: center;
     border-bottom: 1px solid #ccc;
 }
 
 .AppTitle {
-    display: flex;
+    display: inline-flex;
     width: 25vw;
     border-right: 1px solid #ccc;
     justify-content: center;
@@ -32,8 +32,9 @@ body {
 }
 
 .AppRoom {
-    display: flex;
+    display: inline-flex;
     width: 75vw;
+    border-bottom: 1px solid #ccc;
     justify-content: center;
     box-sizing: border-box;
     padding: 20px;

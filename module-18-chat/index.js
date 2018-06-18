@@ -35,8 +35,10 @@ io.on('connection', function(socket) {
         const {name} = userService.getUserById(socket.id);
         socket.broadcast.emit('message', {
             text: message.text,
-            from: name
+            from: name,
+            color: message.color
         });
+        console.log(message.color);
     });
 });
 

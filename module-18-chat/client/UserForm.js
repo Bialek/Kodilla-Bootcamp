@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-
 import styles from './css/UserForm.css';
 
 class UserForm extends Component {
@@ -7,9 +6,9 @@ class UserForm extends Component {
 		super(props);
 		this.state = {
 			name: '',
-			color: ''
+	  		color: ''
 		};
-	}
+  	}
 
 	handleSubmit(e) {
 		e.preventDefault();
@@ -21,12 +20,12 @@ class UserForm extends Component {
 		this.setState({ name: e.target.value });
 		this.setState({ color: randomCol });
 	}
-	
+
 	render() {
 		return(
 			<form className={styles.UserForm} onSubmit={e => this.handleSubmit(e)}>
 				<input
-					className={styles.UserInput }
+					className={styles.UserInput}
 					placeholder='Write your nickname and press enter'
 					onChange={e => this.handleChange(e)}
 					value={this.state.name}
