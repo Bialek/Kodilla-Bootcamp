@@ -28,14 +28,14 @@ class MessageForm extends Component {
 			<form className={styles.MessageForm} onSubmit={e => this.handleSubmit(e)}>
 				<input
 					className={styles.MessageInput}
-						onChange={e => this.changeHandler(e)}
-						value={this.state.text}
-						placeholder='Message'
+					onChange={e => this.changeHandler(e)}
+					value={this.state.text}
+					placeholder='Message'
 				/>
 				<input
-						className={styles.MessageBtn}
-						type='submit'
-						value='send'
+					className={styles.MessageBtn}
+					type='submit'
+					value='send'
 				/>
 			</form>
 		);

@@ -52,6 +52,7 @@ class App extends Component {
 	render() { 
 		return this.state.name !== '' ? this.renderLayout () : this.renderUserForm()
 	}
+	
 	renderLayout() { 
 		return (
 			<div className = {styles.App}>
