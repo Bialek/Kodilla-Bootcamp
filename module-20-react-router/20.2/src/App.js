@@ -25,9 +25,9 @@ const Navigation = props => (
         {props.children}
     </div>
 );
-const Home = () => <h1>hej, tu Home component</h1>
-const Contact = () => <h1>a tu Contact component</h1>
+const Home = () => <h1>hej, tu Home component</h1>;
+const Contact = () => <h1>a tu Contact component</h1>;
 const PageNotFound = () => <h1>404 Not Found</h1>;
-const Hello = {props} => <h1>Witaj, {props.params.name}</h1>
+const Hello = (props) => <h1>Witaj, {props.params.name}</h1>
 
 export default App;
