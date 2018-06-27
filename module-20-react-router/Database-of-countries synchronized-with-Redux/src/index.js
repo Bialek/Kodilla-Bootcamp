@@ -1,7 +1,11 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { render } from 'react-dom';
+import { Provider } from 'react-redux';
+import store from './store';
 
-
-ReactDOM.render(<h1>project initioation </h1>, 
-    document.getElementById('root'));
-
+render(
+    <Provider store={store}>
+        <h1>Inicjalizacja projektu</h1>
+    </Provider>,
+    document.getElementById('root')
+);

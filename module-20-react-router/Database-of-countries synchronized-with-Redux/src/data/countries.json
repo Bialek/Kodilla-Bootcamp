@@ -1,0 +1,49 @@
+[{
+    "name": "Polska",
+    "currency" : "PLN",
+    "populace": "38.53",
+    "capital": "Warszawa",
+    "continent": "Europa",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Flag_of_Poland.svg/1280px-Flag_of_Poland.svg.png",
+    "id": 1
+  }, {
+    "name": "Irlandia",
+    "currency" : "EUR",
+    "populace": "4.59",
+    "capital": "Dublin",
+    "continent": "Europa",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Flag_of_Ireland.svg/1200px-Flag_of_Ireland.svg.png",
+    "id": 2
+  }, {
+    "name": "Holandia",
+    "currency" : "EUR",
+    "populace": "16.8",
+    "capital": "Amsterdam",
+    "continent": "Europa",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Flag_of_the_Netherlands.svg/900px-Flag_of_the_Netherlands.svg.png",
+    "id": 3
+  }, {
+    "name": "Maroko",
+    "currency" : "MAD",
+    "populace": "33.01",
+    "capital": "Rabat",
+    "continent": "Afryka",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Flag_of_Morocco.svg/900px-Flag_of_Morocco.svg.png",
+    "id": 4
+  }, {
+    "name": "Tunezja",
+    "currency" : "TND",
+    "populace": "10.89",
+    "capital": "Tunis",
+    "continent": "Afryka",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Flag_of_Tunisia.svg/1200px-Flag_of_Tunisia.svg.png",
+    "id": 5
+  }, {
+    "name": "Algieria",
+    "currency" : "DZD",
+    "populace": "39.21",
+    "capital": "Algier",
+    "continent": "Afryka",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Flag_of_Algeria.svg/900px-Flag_of_Algeria.svg.png",
+    "id": 6
+  }]
