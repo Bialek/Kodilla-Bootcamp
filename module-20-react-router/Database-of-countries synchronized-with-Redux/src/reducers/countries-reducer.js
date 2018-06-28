@@ -17,6 +17,8 @@ const countriesReducer = function (state = initialState, action) {
             return Object.assign({}, state, {selectedCountry});
         
         case SEARCH_COUNTRIES:
+            const foundCountries = state.countries.filter(country => country.name.toLowerCase().includes(action.searchText.toLowerCase()));
+            return Object.assign({}, state, {visibleCountries: foundCountries});
         
     }   
 
