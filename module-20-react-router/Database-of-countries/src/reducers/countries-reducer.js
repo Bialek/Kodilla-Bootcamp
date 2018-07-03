@@ -7,13 +7,32 @@ const initialState = {
     visibleCountries: []
 };
 
+// const url = "https://restcountries.eu/rest/v2/";
+
+// fetch(url + "all")
+//   .then(response => response.json())
+//   .then(data => {
+//     var countriesDataAPI = data;
+//     console.log(countriesDataAPI);   //<--wyświtla tablice 
+//     return countriesDataAPI;
+//   });
+
+// console.log(countriesDataAPI); //<-- zmienna niezadeklarowana 
+
+const countriesDataAPI = fetch(url + "all")
+  .then(response => response.json())
+  .then(data => {
+    return data;
+  });
+console.log(countriesDataAPI);
+
 const countriesReducer = function (state = initialState, action) {
     switch (action.type) {
         case GET_COUNTRIES:
             return Object.assign({}, state, {countries: state.countries});
 
         case GET_COUNTRY:
-            const selectedCountry = state.countries.find(country => country.id == action.id);
+            const selectedCountry = state.countries.find(country => country.id === action.id);
             return Object.assign({}, state, {selectedCountry});
 
         case SEARCH_COUNTRIES:
@@ -21,8 +40,8 @@ const countriesReducer = function (state = initialState, action) {
             return Object.assign({}, state, {visibleCountries: foundCountries});
 
         case DELETE_COUNTRY:
-            const notDeletedCountries = state.countries.filter(country => country.id != action.id);
-            const notDeletedVisibleCountries = state.visibleCountries.filter(country => country.id != action.id);
+            const notDeletedCountries = state.countries.filter(country => country.id !== action.id);
+            const notDeletedVisibleCountries = state.visibleCountries.filter(country => country.id !== action.id);
             return Object.assign({}, state, {countries: notDeletedCountries, visibleCountries: notDeletedVisibleCountries});
 
         case SET_CONTINENT:
