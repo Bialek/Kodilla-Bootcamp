@@ -1,38 +1,26 @@
 import { GET_COUNTRIES, GET_COUNTRY, SEARCH_COUNTRIES, DELETE_COUNTRY, SET_CONTINENT } from '../actions/actions-countries';
-import countriesData from '../data/countries.json';
+const url = "https://restcountries.eu/rest/v2/";
 
 const initialState = {
-    countries: countriesData,
+    countries: [], 
     selectedCountry: {},
     visibleCountries: []
 };
-
-// const url = "https://restcountries.eu/rest/v2/";
-
-// fetch(url + "all")
-//   .then(response => response.json())
-//   .then(data => {
-//     var countriesDataAPI = data;
-//     console.log(countriesDataAPI);   //<--wyświtla tablice 
-//     return countriesDataAPI;
-//   });
-
-// console.log(countriesDataAPI); //<-- zmienna niezadeklarowana 
-
-const countriesDataAPI = fetch(url + "all")
-  .then(response => response.json())
-  .then(data => {
-    return data;
-  });
-console.log(countriesDataAPI);
+window.onload = countriesReducer;
 
 const countriesReducer = function (state = initialState, action) {
+    async function app() {
+        const countriesData = await fetch(url + "all").then(data => data.json());
+        state.countries = countriesData;
+    }
+    window.onload = app();
+    console.log(state);
     switch (action.type) {
         case GET_COUNTRIES:
             return Object.assign({}, state, {countries: state.countries});
 
         case GET_COUNTRY:
-            const selectedCountry = state.countries.find(country => country.id === action.id);
+            const selectedCountry = state.countries.find(country => country.numericCode === action.id);
             return Object.assign({}, state, {selectedCountry});
 
         case SEARCH_COUNTRIES:
@@ -40,12 +28,12 @@ const countriesReducer = function (state = initialState, action) {
             return Object.assign({}, state, {visibleCountries: foundCountries});
 
         case DELETE_COUNTRY:
-            const notDeletedCountries = state.countries.filter(country => country.id !== action.id);
-            const notDeletedVisibleCountries = state.visibleCountries.filter(country => country.id !== action.id);
+            const notDeletedCountries = state.countries.filter(country => country.numericCode !== action.id);
+            const notDeletedVisibleCountries = state.visibleCountries.filter(country => country.numericCode !== action.id);
             return Object.assign({}, state, {countries: notDeletedCountries, visibleCountries: notDeletedVisibleCountries});
 
         case SET_CONTINENT:
-            const continentCountries = state.countries.filter(country => country.continent === action.name);
+            const continentCountries = state.countries.filter(country => country.region === action.name);
             return Object.assign({}, state, {visibleCountries: continentCountries});
     }
 
