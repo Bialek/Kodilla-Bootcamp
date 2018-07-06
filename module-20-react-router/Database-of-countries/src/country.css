@@ -7,7 +7,8 @@
     height: 400px;
     width: 300px;
     border-radius: 10px;
-    box-shadow: 0 14px 28px rgba(0,0,0,0.10), 0 10px 10px rgba(0,0,0,0.13);
+    -webkit-box-shadow: 0 14px 28px rgba(0,0,0,0.10), 0 10px 10px rgba(0,0,0,0.13);
+            box-shadow: 0 14px 28px rgba(0,0,0,0.10), 0 10px 10px rgba(0,0,0,0.13);
     margin: 20px auto;
 }
 
@@ -30,7 +31,8 @@ header {
     right: 0;
     bottom: -50px;
     margin: 0 auto;
-    object-fit: cover;
+    -o-object-fit: cover;
+       object-fit: cover;
 }
 
 .country-info {
@@ -49,14 +51,17 @@ h1 {
 h2 {
     text-align: center;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 1.6em;
     letter-spacing: 1.2px;
     color: #003e9f;
 }
 
 .info {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: space-around;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
 }
 
 .info div {
@@ -83,10 +88,17 @@ h2 {
 }
 
 .countries-list {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: space-around;
-    flex-direction: row;
-    flex-wrap: wrap;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
 }
 
 .single-country {
@@ -109,4 +121,21 @@ h2 {
     position: absolute;
     bottom: -20px;
     left: 0px;
+    border: none;
+    font-size: 25px;
+    font-weight: 900;
+    background-color: #003e9f;
+    color: #fff;
+    opacity: 0.4;
+    border-radius: 50%;
+    width: 1.5em;
+    height: 1.5em;
+    display: block;
+    line-height: 1.5em;
+    -webkit-transition: 0.6s;
+    transition: 0.6s;
+}
+
+.delete-btn:hover {
+    opacity: 0.7;
 }
