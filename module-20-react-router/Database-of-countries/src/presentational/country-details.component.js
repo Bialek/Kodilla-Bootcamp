@@ -11,7 +11,7 @@ const CountryDetails = (props) => (
 
             <div className="info">
                 <div>
-                    <span>{props.country.population}</span>
+                    <span>{Math.floor(props.country.population)}</span>
                     <span>Population</span>
                 </div>
 
@@ -21,8 +21,8 @@ const CountryDetails = (props) => (
                 </div>
 
                 <div>
-                    <span>{console.log(props.country.currencies)}</span>
-                    <span>Currency</span>
+                    <span>{props.country.area}</span>
+                    <span>Area</span>
                 </div>
             </div>
         </div>

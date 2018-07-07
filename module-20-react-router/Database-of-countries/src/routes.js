@@ -8,12 +8,6 @@ import CountryFlagContainer from './containers/flag-container.component';
 import CountryDetailsContainer from './containers/country-detail-container.component';
 import ContinentsContainer from './containers/continents-container.component';
 
-if (!!window.performance && window.performance.navigation.type === 2) {
-    // value 2 means "The page was accessed by navigating into the history"
-    console.log('Reloading');
-    window.location.reload(); // reload whole page
-
-}
 export default (
     <Route path='/' component={Navigation}>
         <IndexRoute component={Home}/>

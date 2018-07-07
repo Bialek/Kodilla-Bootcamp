@@ -5,7 +5,7 @@ import CountryDetails from '../presentational/country-details.component';
 
 class CountryDetailsContainer extends Component {
     componentDidMount() {
-        this.props.dispatch(getCountry(this.props.params.id));
+        setTimeout(() => this.props.dispatch(getCountry(this.props.params.id)), 500);
     }
 
     render() { 
@@ -15,7 +15,7 @@ class CountryDetailsContainer extends Component {
     }
 }
 
-const mapStateToProps = function (store) { 
+const mapStateToProps =  function (store) { 
     return {
         selectedCountry: store.countriesReducer.selectedCountry
     };

@@ -14,7 +14,6 @@ const countriesReducer = function (state = initialState, action) {
         state.countries = countriesData;
     }
     window.onload = app();
-    console.log(state);
     switch (action.type) {
         case GET_COUNTRIES:
             return Object.assign({}, state, {countries: state.countries});

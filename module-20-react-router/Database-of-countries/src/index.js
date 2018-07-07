@@ -7,6 +7,7 @@ import {Router, hashHistory} from 'react-router';
 import './country.css'
 import routes from './routes';
 
+
 render(
     <Provider store={store}>
         <div>
