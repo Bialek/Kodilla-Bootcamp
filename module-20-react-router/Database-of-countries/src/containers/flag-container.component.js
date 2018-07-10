@@ -8,7 +8,7 @@ class CountryFlagContainer extends Component {
         setTimeout(() => {
             this.props.dispatch(getCountries())
             this.props.dispatch(searchCountries(''))
-        }, 500);
+        }, 1000);
     }
 
     search(event) {

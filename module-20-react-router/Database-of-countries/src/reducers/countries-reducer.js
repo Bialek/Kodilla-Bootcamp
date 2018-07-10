@@ -6,7 +6,7 @@ const initialState = {
     selectedCountry: {},
     visibleCountries: []
 };
-window.onload = countriesReducer;
+
 
 const countriesReducer = function (state = initialState, action) {
     async function app() {

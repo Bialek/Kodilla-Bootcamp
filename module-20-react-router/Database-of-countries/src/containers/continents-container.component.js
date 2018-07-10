@@ -13,10 +13,10 @@ class ContinentsContainer extends Component {
     }
 
     componentDidMount() {
-        this.props.dispatch(setContinent('Africa'));
+      setTimeout(() => this.props.dispatch(setContinent('Africa')), 1000);
     }
 
-    render() {
+    render() { 
         return (
             <div>
                 <select onChange={e => this.chooseContinent(e)}>
