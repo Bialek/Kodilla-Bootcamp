@@ -3,9 +3,6 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-// // Import Style
-// import styles from './Home.css';
-
 class Home extends Component {
   render() {
     return (
