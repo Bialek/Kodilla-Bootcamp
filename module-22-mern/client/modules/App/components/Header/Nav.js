@@ -7,7 +7,7 @@ const Nav = (props, context) => (
   <nav>
     <ul>
       <li><Link to="/home"><FormattedMessage id="home" /></Link></li>
-      <li><Link to="/Posts"><FormattedMessage id="posts" /></Link></li>
+      <li><Link to="/"><FormattedMessage id="posts" /></Link></li>
       <li><Link to="/About"><FormattedMessage id="about" /></Link></li>
     </ul>
   </nav>
