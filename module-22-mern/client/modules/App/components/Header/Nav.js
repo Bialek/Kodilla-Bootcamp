@@ -1,4 +1,4 @@
-import React from 'React';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router';
 import { FormattedMessage } from 'react-intl';
@@ -15,10 +15,6 @@ const Nav = (props, context) => (
 
 Nav.contextTypes = {
   router: PropTypes.object,
-};
-
-Nav.propTypes = {
-  intl: PropTypes.object.isRequired,
 };
 
 export default Nav;
