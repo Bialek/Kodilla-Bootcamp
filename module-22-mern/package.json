@@ -1,7 +1,7 @@
 {
-  "name": "@hashnode/mern-starter",
-  "version": "2.4.0",
-  "description": "Boilerplate project for building Isomorphic apps using React and Redux",
+  "name": "simpleBlog",
+  "version": "1.4.0",
+  "description": "simple blog",
   "scripts": {
     "test": "cross-env NODE_ENV=test PORT=8080 MONGO_URL=mongodb://localhost:27017/mern-test node_modules/.bin/nyc node node_modules/ava/cli.js",
     "watch:test": "npm run test -- --watch",
@@ -22,13 +22,9 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Hashnode/mern-starter.git"
+    "url": "https://github.com/Bialek/Kodilla-Bootcamp/tree/master/module-22-mern"
   },
-  "bugs": {
-    "url": "https://github.com/Hashnode/mern-starter/issues"
-  },
-  "homepage": "https://github.com/Hashnode/mern-starter#readme",
-  "author": "Prashant Abhishek <prashant.abhishek7g@gmail.com>, Mayank Chandola <imayankchd@gmail.com>, Sandeep Panda <sandeep@hashnode.com>, Syed Fazle Rahman <fazle@hashnode.com>, Alkshendra Maurya <alkshendra@hashnode.com>",
+  "author": "Białek Rafał",
   "license": "MIT",
   "dependencies": {
     "babel-core": "^6.26.0",

@@ -10,7 +10,8 @@ class About extends Component {
   render() {
     return (
       <div>
-        <h2>bye</h2>
+        <h2>build with mern.io</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis rhoncus a nulla id tincidunt. Nunc vulputate nisi tellus, non vulputate mauris mattis sed. Etiam sed tristique nisl. Donec sagittis non odio eu lacinia. Proin facilisis pretium odio vulputate faucibus. Nulla.</p>
       </div>
     );
   }

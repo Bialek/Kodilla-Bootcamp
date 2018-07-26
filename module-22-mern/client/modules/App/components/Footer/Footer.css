@@ -2,6 +2,8 @@
   text-align: center;
   padding: 56px 0;
   background-size: cover;
+  background-position: bottom;
+  background-repeat: repeat;
 }
 
 .footer p{
