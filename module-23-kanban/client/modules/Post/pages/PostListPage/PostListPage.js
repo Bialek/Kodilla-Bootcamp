@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
 
 // Import Components
@@ -62,7 +61,7 @@ PostListPage.propTypes = {
 };
 
 PostListPage.contextTypes = {
-  router: PropTypes.object,
+  router: React.PropTypes.object,
 };
 
 export default connect(mapStateToProps)(PostListPage);

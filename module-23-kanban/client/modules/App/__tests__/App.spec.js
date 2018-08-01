@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import test from 'ava';
 import sinon from 'sinon';
 import { shallow, mount } from 'enzyme';
@@ -50,7 +49,7 @@ test('calls componentDidMount', t => {
         intl,
       },
       childContextTypes: {
-        router: PropTypes.object,
+        router: React.PropTypes.object,
         intl: intlShape,
       },
     },

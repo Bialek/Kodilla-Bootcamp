@@ -1,12 +1,9 @@
 import { connect } from 'react-redux';
 import Notes from './Notes';
-import * as NoteActions from '../Note/NoteActions';
+import * as noteActions from '../Note/NoteActions';
 
 const mapDispatchToProps = {
-    ...NoteActions,
+	...noteActions,
 };
 
-export default connect(
-    null,
-    mapDispatchToProps
-)(Notes);
+export default connect(null, mapDispatchToProps)(Notes);

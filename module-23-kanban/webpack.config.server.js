@@ -1,8 +1,9 @@
 var fs = require('fs');
 var path = require('path');
-var ExternalsPlugin = require('webpack2-externals-plugin');
+var ExternalsPlugin = require('webpack-externals-plugin');
 
 module.exports = {
+
   entry: path.resolve(__dirname, 'server/server.js'),
 
   output: {
@@ -18,7 +19,7 @@ module.exports = {
   },
 
   resolve: {
-    extensions: ['.js', '.jsx'],
+    extensions: ['', '.js', '.jsx'],
     modules: [
       'client',
       'node_modules',
@@ -26,36 +27,36 @@ module.exports = {
   },
 
   module: {
-    rules: [
+    loaders: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: [
-              'react',
-              'es2015',
-              'stage-0',
-            ],
-            plugins: [
-              [
-                'babel-plugin-webpack-loaders', {
-                  config: './webpack.config.babel.js',
-                  verbose: false,
-                },
-              ],
-            ],
-          },
+        loader: 'babel-loader',
+        query: {
+          presets: [
+            'react',
+            'es2015',
+            'stage-0',
+          ],
+          plugins: [
+            [
+              'babel-plugin-webpack-loaders', {
+                'config': './webpack.config.babel.js',
+                "verbose": false
+              }
+            ]
+          ]
         },
+      }, {
+        test: /\.json$/,
+        loader: 'json-loader',
       },
     ],
   },
-
   plugins: [
     new ExternalsPlugin({
       type: 'commonjs',
-      include: path.join(__dirname, 'node_modules'),
+      include: path.join(__dirname, './node_modules/'),
     }),
   ],
 };

@@ -27,7 +27,7 @@ module.exports = {
   },
 
   resolve: {
-    extensions: ['.js', '.jsx'],
+    extensions: ['', '.js', '.jsx'],
     modules: [
       'client',
       'node_modules',
@@ -35,59 +35,25 @@ module.exports = {
   },
 
   module: {
-    rules: [
-      {
-        test: /\.s?css$/,
-        exclude: /node_modules/,
-        use: [
-          {
-            loader: 'style-loader',
-          },
-          {
-            loader: 'css-loader',
-            options: {
-              localIdentName: '[name]__[local]__[hash:base64:5]',
-              modules: true,
-              importLoaders: 1,
-              sourceMap: true,
-            },
-          },
-          {
-            loader: 'postcss-loader',
-            options: {
-              plugins: () => [
-                postcssFocus(),
-                cssnext({
-                  browsers: ['last 2 versions', 'IE > 10'],
-                }),
-                postcssReporter({
-                  clearMessages: true,
-                }),
-              ],
-            },
-          },
-        ],
-      },
+    loaders: [
       {
         test: /\.css$/,
+        exclude: /node_modules/,
+        loader: 'style-loader!css-loader?localIdentName=[name]__[local]__[hash:base64:5]&modules&importLoaders=1&sourceMap!postcss-loader',
+      }, {
+        test: /\.css$/,
         include: /node_modules/,
-        use: ['style-loader', 'css-loader'],
-      },
-      {
+        loaders: ['style-loader', 'css-loader'],
+      }, {
         test: /\.jsx*$/,
         exclude: [/node_modules/, /.+\.config.js/],
-        use: 'babel-loader',
-      },
-      {
+        loader: 'babel',
+      }, {
         test: /\.(jpe?g|gif|png|svg)$/i,
-        use: [
-          {
-            loader: 'url-loader',
-            options: {
-              limit: 10000,
-            },
-          },
-        ],
+        loader: 'url-loader?limit=10000',
+      }, {
+        test: /\.json$/,
+        loader: 'json-loader',
       },
     ],
   },
@@ -104,6 +70,16 @@ module.exports = {
         CLIENT: JSON.stringify(true),
         'NODE_ENV': JSON.stringify('development'),
       }
+    }),
+  ],
+
+  postcss: () => [
+    postcssFocus(),
+    cssnext({
+      browsers: ['last 2 versions', 'IE > 10'],
+    }),
+    postcssReporter({
+      clearMessages: true,
     }),
   ],
 };
