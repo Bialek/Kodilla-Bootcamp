@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-//import styles from './Edit.css';
+import styles from './Edit.css';
 
 export default class Edit extends Component {
   	checkEnter = (e) => {
