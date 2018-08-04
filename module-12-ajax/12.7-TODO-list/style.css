@@ -86,6 +86,11 @@ button {
 	background: #E4F1FE; 		
 }
 
+.card-description {
+	word-wrap: break-word;
+	width: 96%;
+}
+
 .column > button[class="add-card"] {
 	width: 85%;
 	bottom: -40px;
