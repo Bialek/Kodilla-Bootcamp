@@ -1,4 +1,22 @@
+.appDiv {
+  	text-align: center;
+}
 .AddLane {
-
+	font-size: 22px;
+	font-weight: bold;
+	padding: 10px 15px;
+	color: white;
+	background-color: grey;
+	border: none;
+	outline: none; 
+	margin-bottom: 20px;
+	transition: .3s;
+	border-radius: 15px;
+}
+.AddLane:hover {
+	background-color: lightgrey;
+	cursor: pointer;
 }
 
+
+ 

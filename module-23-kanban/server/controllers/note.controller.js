@@ -40,13 +40,18 @@ export function deleteNote(req, res) {
       res.status(500).send(err);
     }
 
-    note.remove(() => {
-      res.status(200).end();
-  });
-  
+    Lane.findOne({ id: note.laneId })
+      .then(lane => {
+        const notesFilterredArray = lane.notes.filter(singleNote => singleNote.id !== req.params.noteId);
+        lane.update({ notes: notesFilterredArray }, (error, resp) => {
+          if (error) {
+            res.status(500).send(error);
+          }
+          res.status(200).end();
+        });
+      });
   });
 }
-
 
 export function updateNote(req, res) {
   if (!req.body.task) {

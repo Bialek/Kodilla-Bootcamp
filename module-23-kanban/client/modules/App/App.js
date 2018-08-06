@@ -1,18 +1,11 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-
-// Import Style
-import styles from './App.css';
-
-// Import Components
 import Helmet from 'react-helmet';
 import DevTools from './components/DevTools';
-import Header from './components/Header/Header';
-import Footer from './components/Footer/Footer';
-
-// Import Actions
 import { toggleAddPost } from './AppActions';
 import { switchLanguage } from '../../modules/Intl/IntlActions';
+
+import styles from './App.css';
 
 export class App extends Component {
   constructor(props) {
@@ -34,8 +27,8 @@ export class App extends Component {
         {this.state.isMounted && !window.devToolsExtension && process.env.NODE_ENV === 'development' && <DevTools />}
         <div>
           <Helmet
-            title="MERN Starter - Blog App"
-            titleTemplate="%s - Blog App"
+            title="Kanban App"
+            /*titleTemplate="%s - Blog App"*/
             meta={[
               { charset: 'utf-8' },
               {
@@ -48,15 +41,10 @@ export class App extends Component {
               },
             ]}
           />
-          <Header
-            switchLanguage={lang => this.props.dispatch(switchLanguage(lang))}
-            intl={this.props.intl}
-            toggleAddPost={this.toggleAddPostSection}
-          />
+          <h1 className={styles.title}>Kanban board</h1>
           <div className={styles.container}>
             {this.props.children}
           </div>
-          <Footer />
         </div>
       </div>
     );

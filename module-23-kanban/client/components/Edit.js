@@ -1,4 +1,6 @@
 import React, { Component, PropTypes } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEraser } from '@fortawesome/free-solid-svg-icons'
 import styles from './Edit.css';
 
 export default class Edit extends Component {
@@ -15,21 +17,24 @@ export default class Edit extends Component {
     	}
   	}
   	renderDelete = () => {
-    	return <button className={styles.delete} onClick={this.props.onDelete}>×</button>;
+    	return <button className={styles.delete} onClick={this.props.onDelete}><FontAwesomeIcon icon={faEraser} /></button>;
   	}
   	renderValue = () => {
     	const { value, onDelete, onValueClick } = this.props;
 
     	return (
         	<div>
-        		<span className={styles.value} onClick={onValueClick}>{value}</span>
+				 <span className={styles.value} onClick={onValueClick}>
+				 	{value}
+					<span className={styles.tiptool}>Click to change text</span>
+				</span>
         		{onDelete ? this.renderDelete() : null}
         	</div>
     	);
   	}
   	renderEdit = () => {
     	return (
-        	<input
+        	<textarea
           		type="text"
           		autoFocus
           		defaultValue={this.props.value}

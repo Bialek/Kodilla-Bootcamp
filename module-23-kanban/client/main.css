@@ -7,7 +7,6 @@
 	line-height: normal;
 	outline: none;
 }
-
 ::-webkit-input-placeholder {
 	color:#aaa;
 	font-weight: 300;
@@ -25,7 +24,7 @@ input:-moz-placeholder {
 	font-weight: 300;
 }
 body {
-	background: #f4f2f2;
+	background: #00a8ff;
 	font-family: 'Lato', sans-serif;
 	font-size: 16px;
 }

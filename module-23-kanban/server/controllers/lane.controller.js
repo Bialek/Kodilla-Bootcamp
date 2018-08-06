@@ -34,6 +34,12 @@ export function getLanes(req, res) {
 }
 
 export function deleteLane(req, res) {
+    Note.deleteMany({ laneId: req.params.laneId }, (err, obj) => {
+      if (err) {
+        res.status(500).send(err);
+      }
+    });
+
   	Lane.findOne({ id: req.params.laneId }).exec((err, lane) => {
     	if (err) {
       		res.status(500).send(err);
