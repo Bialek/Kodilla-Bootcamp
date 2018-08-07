@@ -8,7 +8,7 @@ import ItemTypes from '../Kanban/itemTypes';
 
 const mapStateToProps = (state, ownProps) => {
     return {
-    	laneNotes: ownProps.lane.notes.map(noteId => state.notes[noteId])
+    	laneNotes: ownProps.lane.notes.map(noteId => state.notes[noteId]).filter(note => note !== undefined)
   	};
 };
 
