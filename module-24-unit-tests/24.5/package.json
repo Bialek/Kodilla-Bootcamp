@@ -4,8 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha index.test.js",
-    "test:watch": "mocha -w index.test.js"
+    "test1": "mocha calculateDistancePoints.test.js",
+    "test1:watch": "mocha -w calculateDistancePoints.test.js",
+    "test2": "mocha calculateStylePoints.test.js",
+    "test2:watch": "mocha -w calculateStylePoints.test.js",
+    "test3": "mocha calculateTotalPoints.test.js",
+    "test3:watch": "mocha -w calculateTotalPoints.test.js"
   },
   "keywords": [],
   "author": "",
