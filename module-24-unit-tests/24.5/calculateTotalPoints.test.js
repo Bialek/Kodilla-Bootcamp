@@ -80,7 +80,7 @@ describe('calculateTotalPoints', () => {
         });
 
         it('no gateFactor', () => {
-            const actual = calculateTotalPoints(225.0, 3, 200, [18.0, 18.5, 18.0, 18.0, 19.0], -8.7,  );
+            const actual = calculateTotalPoints(225.0, 3, 200, [18.0, 18.5, 18.0, 18.0, 19.0], -8.7);
 
             const expected = 'Incorrect data';
 

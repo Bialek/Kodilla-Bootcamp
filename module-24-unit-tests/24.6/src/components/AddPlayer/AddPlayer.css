@@ -1,0 +1,16 @@
+.AddPlayer {
+    margin: 20px auto; 
+}
+.AddPlayer__submit, .AddPlayer__input {
+    height: 30px; 
+    border: none
+}
+.AddPlayer__input {
+    display: inline-block;
+    width: 70%;
+}
+.AddPlayer__submit {
+    width: 30%;
+    background-color: #FFC107;  
+    color: #fff;
+}

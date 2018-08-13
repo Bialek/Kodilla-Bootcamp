@@ -39,11 +39,6 @@ onPlayerRemove = (playerIndex) => {
   })
 }
 
-// const newLane = { ...state[action.laneId] };
-// 			newLane.notes = newLane.notes.filter(noteId => noteId !== action.noteId);
-
-// 			return { ...state, [action.laneId]: newLane };
-
 render() {
    return (
      <div className="App">

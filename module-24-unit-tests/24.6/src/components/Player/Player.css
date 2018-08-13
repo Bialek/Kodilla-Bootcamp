@@ -1,0 +1,34 @@
+.Player {
+    border: 2px solid;
+    padding: 15px;
+    display: flex;
+    justify-content: flex-start;
+    margin: 5px;
+    font-size: 22px;
+}
+.Player__name, .Player__button {
+    margin: 5px;
+}
+.Player__name {
+    word-wrap: break-word;
+    width: 40%;
+}
+.Player__score {
+    margin: auto;
+}
+.Player__button {
+    cursor: pointer;
+    font-weight: 900;
+    height: 20px;
+    line-height: 20px;
+}
+.Player:nth-child(1),.Player:nth-child(11){color: #fff}
+.Player:nth-child(2),.Player:nth-child(12){color: #00BCD4}
+.Player:nth-child(3),.Player:nth-child(13){color: #FDA7DF}
+.Player:nth-child(4),.Player:nth-child(14){color: #FFEB3B}
+.Player:nth-child(5),.Player:nth-child(15){color: #FF5722}
+.Player:nth-child(6),.Player:nth-child(16){color: #0652DD}
+.Player:nth-child(7),.Player:nth-child(17){color: #C4E538}
+.Player:nth-child(8),.Player:nth-child(18){color: #9C27B0}
+.Player:nth-child(9),.Player:nth-child(19){color: #FF9800}
+.Player:nth-child(10),.Player:nth-child(20){color: #CDDC39}
