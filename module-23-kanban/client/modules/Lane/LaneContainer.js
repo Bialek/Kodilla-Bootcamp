@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Lane from './Lane';
-import { updateLaneRequest, editLane, deleteLaneRequest, moveBetweenLanes } from './LaneActions';
+import { updateLaneRequest, editLane, deleteLaneRequest, moveBetweenLanes, moveBetweenLanesRequest } from './LaneActions';
 import { createNoteRequest } from '../Note/NoteActions';
 import { compose } from 'redux';
 import { DropTarget } from 'react-dnd';
@@ -17,7 +17,8 @@ const mapDispatchToProps = {
   	deleteLane: deleteLaneRequest,
   	updateLane: updateLaneRequest,
   	addNote: createNoteRequest,
-  	moveBetweenLanes,
+	  // moveBetweenLanes: moveBetweenLanesRequest,
+	  moveBetweenLanes,
 };
 
 const noteTarget = {
@@ -32,6 +33,7 @@ const noteTarget = {
     	);
   	},
 };
+console.log(noteTarget);
 
 export default compose(
   	connect(mapStateToProps, mapDispatchToProps),

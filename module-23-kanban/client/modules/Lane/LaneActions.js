@@ -93,3 +93,26 @@ export function moveBetweenLanes(targetLaneId, noteId, sourceLaneId) {
     };
 }
 
+export function moveBetweenLanesRequest(lane) {
+	return (dispatch) => {
+	  return callApi(`lanes/${lane.id}`, 'put', lane).then(() => {
+			dispatch(updateLane(lane));
+	  });
+	};
+}
+
+export function targetLaneRequest(lane) {
+	return (dispatch) => {
+	  return callApi(`lanes/${lane.id}`, 'put', lane).then(() => {
+			dispatch(updateLane(lane));
+	  });
+	};
+}
+
+export function sourceLaneRequest(lane) {
+	return (dispatch) => {
+	  return callApi(`lanes/${lane.id}`, 'put', lane).then(() => {
+			dispatch(updateLane(lane));
+	  });
+	};
+}
