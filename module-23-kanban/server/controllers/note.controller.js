@@ -64,3 +64,16 @@ export function updateNote(req, res) {
       });
     });
 }
+
+export function moveBetweenLanes(req, res) {
+  Note.findOne({ id: req.params.note.id })
+    .then(note => {
+      note.update({ laneId: req.body.targetId }, (err, resp) => {
+        if (err) {
+          res.status(500).send(err);
+        }
+        res.status(200).end();
+      });
+    });
+  
+}
